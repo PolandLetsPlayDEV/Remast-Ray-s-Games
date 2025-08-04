@@ -7,8 +7,8 @@
 
   <style>
     @font-face {
-  font-family: 'pixelar';
-  src: url('./pixelar.ttf') format('truetype');
+      font-family: 'pixelar';
+      src: url('./pixelar.ttf') format('truetype');
     }
 
     * {
@@ -35,6 +35,12 @@
       font-size: 4rem;
       color: #0be6dc;
       text-shadow: 3px 3px #000;
+      animation: float 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-5px); }
     }
 
     nav {
@@ -64,6 +70,13 @@
     .hero h2 {
       font-size: 2.5rem;
       color: #c29b12;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.7; }
+      100% { opacity: 1; }
     }
 
     .hero p {
@@ -93,7 +106,7 @@
       color: #fff;
     }
 
-    .features, .engines, .showcase {
+    .features, .engines, .showcase, .contact {
       padding: 60px 20px;
       text-align: center;
     }
@@ -104,7 +117,7 @@
       margin-bottom: 30px;
     }
 
-    .feature-grid, .engine-grid {
+    .feature-grid, .engine-grid, .showcase-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 30px;
@@ -112,24 +125,67 @@
       margin: 0 auto;
     }
 
-    .feature-card, .engine-card {
+    .feature-card, .engine-card, .showcase-card {
       background: rgba(0,0,0,0.3);
       padding: 20px;
       border-radius: 15px;
       box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .feature-card:hover,
+    .engine-card:hover,
+    .showcase-card:hover {
+      transform: translateY(-5px);
     }
 
     .feature-card h3,
-    .engine-card h3 {
+    .engine-card h3,
+    .showcase-card h3 {
       font-size: 1.3rem;
       color: #8df882;
       margin-bottom: 10px;
     }
 
     .feature-card p,
-    .engine-card p {
+    .engine-card p,
+    .showcase-card p {
       font-size: 1rem;
       color: #ddd;
+    }
+
+    .showcase-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .contact {
+      background: #000;
+      color: #8df882;
+      padding: 50px 20px;
+    }
+
+    .contact h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: #0be6dc;
+      padding: 12px 25px;
+      color: #000;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+      transition: background 0.3s ease;
+    }
+
+    .contact a:hover {
+      background: #f5475e;
+      color: #fff;
     }
 
     footer {
@@ -180,7 +236,7 @@
   </section>
 
   <section class="engines">
-    <h2 class="section-title">🧠 Supported Engines</h2>
+    <h2 class="section-title">Supported Engines</h2>
     <div class="engine-grid">
       <div class="engine-card">
         <h3>Unity 3–6</h3>
@@ -201,9 +257,30 @@
     </div>
   </section>
 
+  <section class="showcase">
+    <h2 class="section-title">Shader Showcase</h2>
+    <div class="showcase-grid">
+      <div class="showcase-card">
+        <img src="https://via.placeholder.com/300x200.png?text=RainFX+Demo" alt="RainFX Demo" />
+        <h3>RainFX in action</h3>
+        <p>Real-time reflections on wet surfaces during dynamic storms.</p>
+      </div>
+      <div class="showcase-card">
+        <img src="https://via.placeholder.com/300x200.png?text=Volumetric+Fog" alt="Fog Demo" />
+        <h3>Fog Depth</h3>
+        <p>Adds mysterious glow to your scenes — from horror to cyberpunk.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>Join Our Discord or Contact Us</h2>
+    <a href="#">Join Discord</a>
+  </section>
+
   <footer>
     &copy; 2025 Remast Ray’s Games. Shader power for every dev.
   </footer>
 
 </body>
-  </html>
+          </html> 
